@@ -88,7 +88,7 @@ export class GetAllMoviesService {
   }
 
   // Non-typed response extraction
-  private extractResponseData(res: Response): any {
+  private extractResponseData(res: Response | Object): any {
     const body = res;
     return body || {};
   }
@@ -127,7 +127,7 @@ export class GetSingleMovieService {
     );
   }
 
-  private extractResponseData(res: Response): any {
+  private extractResponseData(res: Response | Object): any {
     const body = res;
     return body || {};
   }
@@ -166,7 +166,7 @@ export class GetDirectorService {
     );
   }
 
-  private extractResponseData(res: Response): any {
+  private extractResponseData(res: Response | Object): any {
     const body = res;
     return body || {};
   }
@@ -205,7 +205,7 @@ export class GetGenreService {
     );
   }
 
-  private extractResponseData(res: Response): any {
+  private extractResponseData(res: Response | Object): any {
     const body = res;
     return body || {};
   }
@@ -244,7 +244,7 @@ export class GetUserService {
     );
   }
 
-  private extractResponseData(res: Response): any {
+  private extractResponseData(res: Response | Object): any {
     const body = res;
     return body || {};
   }
@@ -283,7 +283,7 @@ export class GetFavouriteMoviesService {
     );
   }
 
-  private extractResponseData(res: Response): any {
+  private extractResponseData(res: Response | Object): any {
     const body = res;
     return body || {};
   }
@@ -322,7 +322,7 @@ export class AddFavouriteMovieService {
     );
   }
 
-  private extractResponseData(res: Response): any {
+  private extractResponseData(res: Response | Object): any {
     const body = res;
     return body || {};
   }
@@ -361,7 +361,7 @@ export class EditUserService {
     );
   }
 
-  private extractResponseData(res: Response): any {
+  private extractResponseData(res: Response | Object): any {
     const body = res;
     return body || {};
   }
@@ -400,7 +400,7 @@ export class DeleteUserService {
     );
   }
 
-  private extractResponseData(res: Response): any {
+  private extractResponseData(res: Response | Object): any {
     const body = res;
     return body || {};
   }
@@ -439,7 +439,7 @@ export class DeleteFavouriteMovieService {
     );
   }
 
-  private extractResponseData(res: Response): any {
+  private extractResponseData(res: Response | Object): any {
     const body = res;
     return body || {};
   }
