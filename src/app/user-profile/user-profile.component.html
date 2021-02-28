@@ -1,0 +1,32 @@
+<app-nav-bar></app-nav-bar>
+<div class="user-profile-div">
+  <mat-card class="user-profile-mat-card">
+    <mat-card-header>
+      <mat-card-title class="user-profile-title">
+        Your Profile
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <b>Username:</b> {{ userData.Username }}
+    </mat-card-content>
+    <mat-card-content>
+      <b>Email:</b> {{ userData.Email }}
+    </mat-card-content>
+    <mat-card-content>
+      <b>Birthday:</b> {{ userData.Birthday | date: 'dd/MM/yyyy'}}
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="openUpdateUserProfileDialog()">
+        Update your Profile
+      </button>
+      <button mat-raised-button color="warn" (click)="openDeleteUserProfileDialog()">
+        Delete your Profile
+      </button>
+      <button mat-raised-button color="basic" routerLink="/movies" class="home">
+        Go back
+      </button>
+    </mat-card-actions>
+    <mat-card-content>
+      <mat-card-title>Your Favourites: {{userData.FavoriteMovies}} </mat-card-title>
+    </mat-card-content>
+  </mat-card>

@@ -1,0 +1,20 @@
+.nav-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 18px;
+  background-color: #534d4d;
+}
+
+.app-title {
+  font-size: 35px;
+  margin-left: 10px;
+  color: #f8f8f8;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.nav-links {
+  margin-right: 30px;
+  color: #f8f8f8;
+} 
