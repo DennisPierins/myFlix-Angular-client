@@ -4,19 +4,28 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { Observable, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-//Declaring the api url that will provide data for the client app
+/**
+ * Declaring the api url that will provide data for the client app
+ */
 const apiUrl = 'https://themyflixapi.herokuapp.com/';
 
-//User registration
+/**
+ * User registration
+ */
 @Injectable({
   providedIn: 'root'
 })
 
 export class UserRegistrationService {
-  // Inject the HttpClient module to the constructor params
-  // This will provide HttpClient to the entire class, making it available via this.http
+  /**
+   * Inject the HttpClient module to the constructor params. This will provide HttpClient to the entire class, making it available via this.http
+   * @param http 
+   */
   constructor(private http: HttpClient) { }
-  // Making the api call for the user registration endpoint
+  /**
+   * Making the api call for the user registration endpoint
+   * @param userDetails 
+   */
   public userRegistration(userDetails: any): Observable<any> {
     console.log(userDetails);
     return this.http.post(apiUrl + 'users', userDetails).pipe(
@@ -37,7 +46,9 @@ export class UserRegistrationService {
   }
 }
 
-//User login
+/**
+ * Allows a user to log in
+ */
 @Injectable({
   providedIn: 'root'
 })
@@ -65,7 +76,9 @@ export class UserLoginService {
   }
 }
 
-// Getting all movies
+/**
+ * Gets a list of all the movies in the database and returns them as an array of objects
+ */
 @Injectable({
   providedIn: 'root'
 })
@@ -73,7 +86,9 @@ export class UserLoginService {
 export class GetAllMoviesService {
   constructor(private http: HttpClient) { }
 
-  //API call to get all movies
+  /**
+   * API call to get all movies
+   */
   getAllMovies(): Observable<any> {
     const token = localStorage.getItem('token');
     return this.http.get(apiUrl + 'movies', {
@@ -106,7 +121,9 @@ export class GetAllMoviesService {
   }
 }
 
-//Getting a single movie
+/**
+ * Gets a single movie by title
+ */
 @Injectable({
   providedIn: 'root'
 })
@@ -145,7 +162,9 @@ export class GetSingleMovieService {
   }
 }
 
-//Getting director info
+/**
+ * Gets director info by name
+ */
 @Injectable({
   providedIn: 'root'
 })
@@ -184,7 +203,9 @@ export class GetDirectorService {
   }
 }
 
-//Getting genre info
+/**
+ * Gets genre info by name
+ */
 @Injectable({
   providedIn: 'root'
 })
@@ -223,7 +244,9 @@ export class GetGenreService {
   }
 }
 
-//Getting user info
+/**
+ * Gets user info by username
+ */
 @Injectable({
   providedIn: 'root'
 })
@@ -263,7 +286,9 @@ export class GetUserService {
   }
 }
 
-//Getting favourite movies
+/**
+ * Gets the user's favourite movies by username
+ */
 @Injectable({
   providedIn: 'root'
 })
@@ -302,7 +327,9 @@ export class GetFavouriteMoviesService {
   }
 }
 
-//Adding favourite movies
+/**
+ * Adds a movie to the user's list of favourites
+ */
 @Injectable({
   providedIn: 'root'
 })
@@ -342,7 +369,9 @@ export class AddFavouriteMovieService {
   }
 }
 
-//Edit user
+/**
+ * Allows users to update their profile info
+ */
 @Injectable({
   providedIn: 'root'
 })
@@ -382,7 +411,9 @@ export class EditUserService {
   }
 }
 
-//Deleting user
+/**
+ * Allows users to delete their account
+ */
 @Injectable({
   providedIn: 'root'
 })
@@ -423,7 +454,9 @@ export class DeleteUserService {
   }
 }
 
-//Deleting favourite movie from user
+/**
+ * Allows users to delete favourite movies from their list
+ */
 @Injectable({
   providedIn: 'root'
 })

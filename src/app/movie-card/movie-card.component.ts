@@ -23,10 +23,16 @@ export class MovieCardComponent {
     public snackBar: MatSnackBar
   ) { }
 
+  /**
+   * The getMovies function is run on initialization
+   */
   ngOnInit(): void {
     this.getMovies();
   }
 
+  /**
+   * This retrieves a list of all the movies and stores them in an array
+   */
   getMovies(): void {
     this.fetchApiData.getAllMovies().subscribe((resp: any) => {
       this.movies = resp;
@@ -35,6 +41,12 @@ export class MovieCardComponent {
     });
   }
 
+  /**
+   * Opens a dialog containing details of the movie's director
+   * @param name 
+   * @param bio 
+   * @param birth 
+   */
   showDirectorDialog(name: string, bio: string, birth: Date): void {
     this.dialog.open(DirectorDialogComponent, {
       data: { name, bio, birth },
@@ -42,6 +54,11 @@ export class MovieCardComponent {
     });
   }
 
+  /**
+   * Opens a dialog containing details of the movie's genre
+   * @param name 
+   * @param description 
+   */
   showGenreDialog(name: string, description: string): void {
     this.dialog.open(GenreDialogComponent, {
       data: { name, description },
@@ -49,6 +66,14 @@ export class MovieCardComponent {
     });
   }
 
+  /**
+   * Opens a dialog containing details of the movie
+   * @param title 
+   * @param imagepath 
+   * @param description 
+   * @param director 
+   * @param genre 
+   */
   showMovieDetails(title: string, imagepath: string, description: string, director: string, genre: string): void {
     this.dialog.open(DetailsDialogComponent, {
       data: { title, imagepath, description, director, genre },
@@ -56,6 +81,11 @@ export class MovieCardComponent {
     });
   }
 
+  /**
+   * Adds the movie to the user's list of favourite movies
+   * @param id 
+   * @param title 
+   */
   addFavourite(id: string, title: string): void {
     this.fetchApiData2.addFavouriteMovie(id).subscribe(() => {
       this.snackBar.open(`${title} has been added to your favourites`, 'OK', {

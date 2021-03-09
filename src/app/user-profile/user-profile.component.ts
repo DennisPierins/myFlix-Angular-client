@@ -26,22 +26,34 @@ export class UserProfileComponent implements OnInit {
     public router: Router
   ) { }
 
+  /**
+   * The getUser function is run on initialization
+   */
   ngOnInit(): void {
     this.getUser();
   }
 
+  /**
+   * Gets the user's data from the database
+   */
   getUser(): void {
     this.fetchApiData.getUser().subscribe((resp: any) => {
       this.userData = resp;
     });
   }
 
+  /**
+   * Opens the dialog to update a user's profile
+   */
   openUpdateUserProfileDialog(): void {
     this.dialog.open(UpdateUserProfileComponent, {
       width: '280px',
     });
   }
 
+  /**
+   * This will delete the user's profile after confirming
+   */
   openDeleteUserProfileDialog(): void {
     let ok = confirm("Deleting this profile can not be undone. Are you sure?");
     if (ok) {
